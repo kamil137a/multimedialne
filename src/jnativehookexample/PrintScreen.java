@@ -12,9 +12,14 @@ import java.util.TimerTask;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
-
+/**
+ * Klasa odpowiedzialna za robienie zrzutów ekranu 
+ * @author PanTomek
+ */
 public class PrintScreen extends TimerTask{
-    
+    /**
+     * Dzięki funkcji run możemy użyć wykonania kodu w ustalonym odstępie czasu
+     */
     @Override
     public void run() {
       MACaddress mac = new MACaddress();

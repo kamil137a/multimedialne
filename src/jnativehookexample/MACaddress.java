@@ -4,7 +4,10 @@ import java.net.InetAddress;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.net.UnknownHostException;
-
+/**
+ * Klasa z metodą zwracającą adres MAC użytkownika
+ * @author PanTomek
+ */
 public class MACaddress {
     public String mac;
     
@@ -15,7 +18,10 @@ public class MACaddress {
     public String getcurrmac(){
     return this.mac;
     }
-    
+    /**
+     * Pobranie adresu MAC
+     * @return 
+     */
     public String getmac(){
       InetAddress ip;
 	try {

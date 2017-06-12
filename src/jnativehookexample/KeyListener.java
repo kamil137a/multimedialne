@@ -9,11 +9,17 @@ import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
-
+/**
+ * Klasa odpowiedzialna za zapis wciśnięcia i puszczenia klawisza oraz czasu 
+ * @author PanTomek
+ */
 public class KeyListener implements NativeKeyListener {
 
     String s1="\\tekst"+System.currentTimeMillis();
-
+/**
+ * Funkcja zapisująca wcisnięcie kawisza
+ * @param e 
+ */
     @Override
     public void nativeKeyPressed(NativeKeyEvent e) {
     MACaddress mac=new MACaddress();      
@@ -52,7 +58,10 @@ public class KeyListener implements NativeKeyListener {
             }
         }
     }
-
+/**
+ * Funkcja zapisująca puszczenie klawisza
+ * @param e 
+ */
     @Override
     public void nativeKeyReleased(NativeKeyEvent e) {
         MACaddress mac = new MACaddress();
